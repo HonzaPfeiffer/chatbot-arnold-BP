@@ -1,13 +1,18 @@
-import Welcome from './actions/welcome'
 import MainMenu from './actions/mainMenu'
 import Faq from './actions/faq'
-import BasicMessage from './actions/faqAnswers'
+import {
+    MultisportAnswer,
+    MultisportSaunaAnswer,
+    MultisportMoreAnswer,
+    MasageAnswer,
+    TrainingAnswer,
+    BenefitCardAnswer,
+    PricesAnswer,
+    ContactsAnswer,
+    OpeningHoursAnswer
+} from './actions/faqAnswers'
 
 export const routes = [
-    {
-        path: 'start',
-        action: Welcome,
-    },
     {
         text: /Ahoj|Dobrý den/,
         action: MainMenu,
@@ -17,10 +22,39 @@ export const routes = [
         action: Faq,
     },
     {
-        type: 'text',
-        params: { data:'Ano, multisport kartu u nás můžete využít na vstup do fitness, skupinové lekce, nebo na saunu. V jeden den ovšem lze využít kartu jen na jednu aktivitu z těchto tří.'},
         payload: 'multisport',
-        action: BasicMessage,
+        action: MultisportAnswer,
     },
-
+    {
+        payload: 'multisportSauna',
+        action: MultisportSaunaAnswer,
+    },
+    {
+        payload: 'multisportMore',
+        action: MultisportMoreAnswer,
+    },
+    {
+        payload: 'masage',
+        action: MasageAnswer,
+    },
+    {
+        payload: 'training',
+        action: TrainingAnswer,
+    },
+    {
+        payload: 'benefitCard',
+        action: BenefitCardAnswer,
+    },
+    {
+        payload: 'prices',
+        action: PricesAnswer,
+    },
+    {
+        payload: 'contacts',
+        action: ContactsAnswer,
+    },
+    {
+        payload: 'openingHours',
+        action: OpeningHoursAnswer,
+    }
 ]

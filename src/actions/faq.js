@@ -19,7 +19,7 @@ export default class Faq extends React.Component {
                 </Text>
                 <Button payload="multisport">Lze u vás využít multisport karta? Jestli ano, na co všechno?</Button>
                 <Button payload="multisportSauna">Jak funguje multisport karta na saunu?</Button>
-                <Button payload="multisportMore">Co když jsme dva zákazníci vlastnící multisport kartu, a chceme do sauny na 90min?</Button>
+                <Button payload="multisportMore">Dva zákazníci s multisport kartou chtějí do sauny na 90min.</Button>
                 <Button payload="masage">Jak si u vás můžu domluvit masáž?</Button>
                 <Button payload="training">Jak si domluvím trénink s trenérem?</Button>
                 <Button payload="benefitCard">Mohu u vás využít kartu benefit/benefit plus?</Button>
