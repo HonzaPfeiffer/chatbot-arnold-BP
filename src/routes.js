@@ -1,5 +1,6 @@
 import MainMenu from './actions/mainMenu'
 import Faq from './actions/faq'
+import EmailSender from './actions/sendEmail'
 import {
     MultisportAnswer,
     MultisportSaunaAnswer,
@@ -20,6 +21,10 @@ export const routes = [
     {
         payload: 'faq',
         action: Faq,
+    },
+    {
+        payload: 'personalQuery',
+        action: EmailSender,
     },
     {
         payload: 'multisport',

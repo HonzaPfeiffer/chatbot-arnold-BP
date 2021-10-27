@@ -1,4 +1,5 @@
 import logo from '../assets/logoFK.png';
+import EmailForm from './emailFormMessage';
 
 export const webchat = {
     theme: {
@@ -39,6 +40,7 @@ export const webchat = {
                     background: '#87d78d',
                 }            
             },
+            customTypes: [EmailForm],
         },
         button: {
             style: {

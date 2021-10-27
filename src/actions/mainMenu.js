@@ -10,7 +10,7 @@ export default class extends React.Component {
           <Button payload="ourServices">Naše služby</Button>
           <Button payload="trainersServices">Služby trenérů</Button>
           <Button payload="faq">Časté dotazy</Button>
-          <Button payload="customQuery">Vlastní dotaz</Button>
+          <Button payload="personalQuery">Zeptat se personálu</Button>
         </Text>
       </>
     )
