@@ -16,7 +16,6 @@ class FaqAnswer extends React.Component {
         <Close></Close>
       </>
     )
-
   }
 }
 

@@ -1,7 +1,8 @@
 import MainMenu from './actions/mainMenu'
 import Faq from './actions/faq'
 import EmailSender from './actions/sendEmail'
-import faqAnswers from './assets/faqAnswers.json'
+import NotFound from './actions/notFound'
+import CloseQuestion from './actions/closeQuestion'
 
 import {
     FaqAnswer,
@@ -15,6 +16,14 @@ export const routes = [
         text: /Ahoj|Dobrý den/,
         action: MainMenu,
         payload: /help-.*/
+    },
+    {
+        action: CloseQuestion,
+        payload: 'help'
+    },
+    {
+        path: '404', 
+        action: NotFound
     },
     {
         action: MainMenu,
