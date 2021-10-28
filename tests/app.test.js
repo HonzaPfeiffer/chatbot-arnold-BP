@@ -19,3 +19,16 @@ test('TEST: (404) NOT FOUND', async () => {
     o.text("I don't understand you")
   )
 })
+
+test('Main menu', async () => {
+  await expect(i.text('Ahoj')).resolves.toBe(
+    o.text("Jak vám mohu pomoci? Lze zvolit jednu z možností nebo zadat dotaz.")
+  )
+})
+
+test('Test FAQ - faqAnwers.js', async () => {
+  await expect(i.payload('faq')).resolves.toBe(
+    o.text("Vyberte, co vás zajímá.")
+    //o.replies(results))
+  )
+})
