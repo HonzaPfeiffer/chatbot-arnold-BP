@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import { WebchatContext, customMessage } from '@botonic/react'
-import TextField from '@material-ui/core/TextField'
 import { MyTextField } from '../utils'
 
 const Form = styled.div`

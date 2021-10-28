@@ -1,13 +1,10 @@
 import MainMenu from './actions/mainMenu'
 import Faq from './actions/faq'
 import EmailSender from './actions/sendEmail'
+import faqAnswers from './assets/faqAnswers.json'
+
 import {
-    MultisportAnswer,
-    MultisportSaunaAnswer,
-    MultisportMoreAnswer,
-    MasageAnswer,
-    TrainingAnswer,
-    BenefitCardAnswer,
+    FaqAnswer,
     PricesAnswer,
     ContactsAnswer,
     OpeningHoursAnswer
@@ -17,6 +14,15 @@ export const routes = [
     {
         text: /Ahoj|Dobrý den/,
         action: MainMenu,
+        payload: /help-.*/
+    },
+    {
+        action: MainMenu,
+        payload: /help-.*/
+    },
+    {
+        action: FaqAnswer,
+        payload: /faq-.*/
     },
     {
         payload: 'faq',
@@ -25,30 +31,6 @@ export const routes = [
     {
         payload: 'personalQuery',
         action: EmailSender,
-    },
-    {
-        payload: 'multisport',
-        action: MultisportAnswer,
-    },
-    {
-        payload: 'multisportSauna',
-        action: MultisportSaunaAnswer,
-    },
-    {
-        payload: 'multisportMore',
-        action: MultisportMoreAnswer,
-    },
-    {
-        payload: 'masage',
-        action: MasageAnswer,
-    },
-    {
-        payload: 'training',
-        action: TrainingAnswer,
-    },
-    {
-        payload: 'benefitCard',
-        action: BenefitCardAnswer,
     },
     {
         payload: 'prices',

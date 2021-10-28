@@ -1,0 +1,26 @@
+{
+    "multisport": {
+        "question": "Lze u vás využít multisport karta? Jestli ano, na co všechno?",
+        "answer": "Ano, multisport kartu u nás můžete využít na vstup do fitness, skupinové lekce, nebo na saunu. V jeden den ovšem lze využít kartu jen na jednu aktivitu z těchto tří."
+    },
+    "multisportSauna": {
+        "question": "Jak funguje multisport karta na saunu?",
+        "answer": "Na vstup do sauny jsou potřeba dvě multisport karty, tzn. 2 lidé vlastnící tuto kartu. Jestli že kartu má pouze jeden, druhý doplácí danou částku. V obou případech je pak sauna na 1h, v ceně není prádlo (ručníky, prostěradla). To si lze zaplatit na recepci, nebo přinést vlastní."
+    },
+    "multisportMore": {
+        "question": "Dva zákazníci s multisport kartou chtějí do sauny na 90min.",
+        "answer": "Pak si každý musí připlatit 30min."
+    },
+    "masage": {
+        "question": "Jak si u vás můžu domluvit masáž?",
+        "answer": "Je potřeba se domluvit přímo s masérem, do diáře mu nevidíme 😊."
+    },
+    "training": {
+        "question": "Jak si domluvím trénink s trenérem?",
+        "answer": "Opět je potřeba domluvit se přímo s trenérem/trenérkou. Buď osobně ve fitness, nebo napsat email či sms. Telefonáty nedoporučujeme, přes den bývají vytížení, a není zaručeno že vám telefon přijmou. "
+    },
+    "benefitCard": {
+        "question": "Mohu u vás využít kartu benefit/benefit plus?",
+        "answer": "Ano, tyto karty přijímáme."
+    }
+}
