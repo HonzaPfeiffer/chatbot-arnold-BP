@@ -10,8 +10,8 @@ export default class Faq extends React.Component {
                     Vyberte, co vás zajímá.
                 </Text>
                 {
-                    Object.keys(faqAnswers).map((key) => (
-                            <Button payload={'faq-' + key}>{faqAnswers[key].question}</Button>
+                    Object.keys(faqAnswers).map((key, i) => (
+                            <Button key={i} payload={'faq-' + key}>{faqAnswers[key].question}</Button>
                         ))
                 }
                 <Button payload="prices">Náš ceník</Button>

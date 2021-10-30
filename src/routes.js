@@ -3,6 +3,8 @@ import Faq from './actions/faq'
 import EmailSender from './actions/sendEmail'
 import NotFound from './actions/notFound'
 import CloseQuestion from './actions/closeQuestion'
+import TrainersServices from './actions/trainersServices'
+import Trainers from './actions/trainers'
 
 import {
     FaqAnswer,
@@ -36,6 +38,14 @@ export const routes = [
     {
         payload: 'faq',
         action: Faq,
+    },
+    {
+        action: TrainersServices,
+        payload: 'trainersServices'
+    },
+    {
+        action: Trainers,
+        payload: 'trainers'
     },
     {
         payload: 'personalQuery',
