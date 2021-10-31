@@ -1,23 +1,28 @@
 import MainMenu from './actions/mainMenu'
-import Faq from './actions/faq'
 import EmailSender from './actions/sendEmail'
 import NotFound from './actions/notFound'
 import CloseQuestion from './actions/closeQuestion'
-import TrainersServices from './actions/trainersServices'
-import Trainers from './actions/trainers'
-
+import ServiceMenu from './actions/ourServices'
+import { TrainersServices, Trainers } from './actions/trainersServices'
+import { LymfoService, LymfoPrices } from './actions/lymfo'
+import { FitnessServices, FitnessPrices } from './actions/fitness' 
 import {
+    Faq,
     FaqAnswer,
     PricesAnswer,
     ContactsAnswer,
     OpeningHoursAnswer
-} from './actions/faqAnswers'
+} from './actions/faq'
 
 export const routes = [
     {
         text: /Ahoj|Dobrý den/,
         action: MainMenu,
         payload: /help-.*/
+    },
+    {
+        action: ServiceMenu,
+        payload: 'ourServices'
     },
     {
         action: CloseQuestion,
@@ -28,8 +33,20 @@ export const routes = [
         action: NotFound
     },
     {
-        action: MainMenu,
-        payload: /help-.*/
+        action: LymfoService,
+        payload: 'lymfo'
+    },
+    {
+        action: LymfoPrices,
+        payload: 'lymfoPrices'
+    },
+    {
+        action: FitnessServices,
+        payload: 'fitness'
+    },
+    {
+        action: FitnessPrices,
+        payload: 'fitnessPrices'
     },
     {
         action: FaqAnswer,
