@@ -5,7 +5,7 @@ import CloseQuestion from './actions/closeQuestion'
 import ServiceMenu from './actions/ourServices'
 import { TrainersServices, Trainers } from './actions/trainersServices'
 import { LymfoService, LymfoPrices } from './actions/lymfo'
-import { FitnessServices, FitnessPrices } from './actions/fitness' 
+import { FitnessServices, FitnessPrices } from './actions/fitness'
 import {
     Faq,
     FaqAnswer,
@@ -18,6 +18,21 @@ import {
     LessonPrices,
     JoinLesson
 } from './actions/lessons'
+import {
+    SaunaService,
+    SaunaPrices,
+    ReserveSauna
+} from './actions/sauna'
+import {
+    BodySpaceService,
+    BodySpacePrices,
+    ReserveBodySpace
+} from './actions/bodySpace'
+import {
+    ImooveService,
+    ImoovePrices,
+    ReserveImoove
+} from './actions/imoove'
 
 export const routes = [
     {
@@ -34,8 +49,44 @@ export const routes = [
         payload: 'help'
     },
     {
-        path: '404', 
+        path: '404',
         action: NotFound
+    },
+    {
+        action: BodySpaceService,
+        payload: 'bodySpace'
+    },
+    {
+        action: BodySpacePrices,
+        payload: 'bodySpacePrices'
+    },
+    {
+        action: ReserveBodySpace,
+        payload: 'reserveBodySpace'
+    },
+    {
+        action: ImooveService,
+        payload: 'imoove'
+    },
+    {
+        action: ImoovePrices,
+        payload: 'imoovePrices'
+    },
+    {
+        action: ReserveImoove,
+        payload: 'reserveImoove'
+    },
+    {
+        action: SaunaService,
+        payload: 'sauna'
+    },
+    {
+        action: SaunaPrices,
+        payload: 'saunaPrices'
+    },
+    {
+        action: ReserveSauna,
+        payload: 'reserveSauna'
     },
     {
         action: LessonsService,
