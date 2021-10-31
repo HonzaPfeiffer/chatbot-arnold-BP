@@ -13,6 +13,11 @@ import {
     ContactsAnswer,
     OpeningHoursAnswer
 } from './actions/faq'
+import {
+    LessonsService,
+    LessonPrices,
+    JoinLesson
+} from './actions/lessons'
 
 export const routes = [
     {
@@ -31,6 +36,18 @@ export const routes = [
     {
         path: '404', 
         action: NotFound
+    },
+    {
+        action: LessonsService,
+        payload: 'lessons'
+    },
+    {
+        action: LessonPrices,
+        payload: 'lessonsPrices'
+    },
+    {
+        action: JoinLesson,
+        payload: 'joinLesson'
     },
     {
         action: LymfoService,
