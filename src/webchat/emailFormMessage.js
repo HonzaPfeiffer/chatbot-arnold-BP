@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import { WebchatContext, customMessage } from '@botonic/react'
-import { MyTextField } from '../utils'
+import { MyTextField, MyTextArea } from '../utils'
+import { TextField } from '@mui/material'
 
 const Form = styled.div`
   display: flex;
@@ -24,15 +25,22 @@ class EmailForm extends React.Component {
   static contextType = WebchatContext
   constructor(props) {
     super(props)
+    this.handleEmail = this.handleEmail.bind(this)
     this.state = {
       email: '',
-      message: ''
+      message: '',
+      error: false
     }
   }
 
   close() {
-    const payload = 'bye'
-    this.context.sendPayload(payload)
+    if (this.verifiedForm()) {
+      this.setState({error: false})
+      const payload = 'bye'
+      this.context.sendPayload(payload)
+    } else {
+      this.setState({error: true})
+    }
   }
 
   verifiedForm() {
@@ -42,6 +50,10 @@ class EmailForm extends React.Component {
     )
       return false
     return true
+  }
+
+  handleEmail(event) {
+    this.setState({ email: event.target.value })
   }
 
   render() {
@@ -55,7 +67,11 @@ class EmailForm extends React.Component {
         <MyTextField
           required={true}
           label='Email'
+          error={this.state.error}
+          value={this.state.email}
+          onChange={this.handleEmail}
         />
+        <MyTextArea></MyTextArea>
         <Button onClick={() => this.close()}>Odeslat email</Button>
       </Form>
     )
