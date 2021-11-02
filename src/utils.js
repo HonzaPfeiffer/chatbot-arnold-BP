@@ -1,6 +1,5 @@
 import React from 'react'
 import { TextField } from '@mui/material'
-import TextareaAutosize from '@mui/core/TextareaAutosize';
 
 
 export const emailRegex = /^([A-Za-z0-9_\-.])+@([A-Za-z0-9_\-.])+\.([A-Za-z]{2,4})$/
@@ -10,7 +9,7 @@ export function MyTextField(props) {
   if (props.error)
     helperText =
       props.error && props.value === ''
-        ? 'This field is required'
+        ? 'Toto pole je povinné'
         : props.errorMessage || ''
   return (
     <TextField
@@ -23,6 +22,7 @@ export function MyTextField(props) {
       error={helperText !== ''}
       helperText={helperText}
       disabled={props.disabled}
+      color='success'
       style={props.style || { width: '80%', margin: '5px' }}
     />
   )
@@ -33,11 +33,12 @@ export function MyTextArea(props) {
   if (props.error)
     helperText =
       props.error && props.value === ''
-        ? 'This field is required'
+        ? 'Toto pole je povinné'
         : props.errorMessage || ''
   return (
-    <TextareaAutosize
+    <TextField
       variant='filled'
+      multiline
       {...props.params}
       required={props.required}
       label={props.label}
@@ -46,7 +47,8 @@ export function MyTextArea(props) {
       error={helperText !== ''}
       helperText={helperText}
       disabled={props.disabled}
-      style={props.style || { width: '80%', margin: '5px' }}
+      color='success'
+      style={props.style || { width: '80%', margin: '5px'}}
     />
   )
 }
