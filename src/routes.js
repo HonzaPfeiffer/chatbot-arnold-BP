@@ -36,7 +36,7 @@ import {
 
 export const routes = [
     {
-        text: /Ahoj|Dobrý den/,
+        intent: 'Greeting',
         action: MainMenu,
         payload: /help-.*/
     },
