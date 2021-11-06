@@ -11,7 +11,6 @@ class TrainersServices extends React.Component {
           Můžete zvolit tyto možnosti.
           <Button payload='help-yes'>Vrátit se do hlavního menu</Button>
           <Button payload='trainers'>Trenéři a maséři</Button>
-          <Button payload='help-no'>Ukončit konverzaci</Button>
         </Text>
       </>
     )

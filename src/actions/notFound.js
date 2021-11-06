@@ -6,7 +6,7 @@ export default class extends React.Component {
     return (
       <>
         <Text>
-          Nerozumím vám. Můžete to zkusit znovu.
+          Moc se omlouvám, ale nerozumím vám. Můžete to zkusit znovu.
         </Text>
       </>
     )

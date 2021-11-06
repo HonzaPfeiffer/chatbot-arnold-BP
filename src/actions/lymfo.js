@@ -11,7 +11,7 @@ class LymfoService extends React.Component {
         <Text>
           Přejete si ukázat ceník nebo se vrátit do hlavního menu?
           <Button payload='help-yes'>Vrátit se do hlavního menu</Button>
-          <Button payload='lymfoPrices'>Ukázat ceník</Button>
+          <Button payload='priceList-lymfo'>Ukázat ceník</Button>
           <Button payload='help-no'>Ukončit konverzaci</Button>
         </Text>
       </>

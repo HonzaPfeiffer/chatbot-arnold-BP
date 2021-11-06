@@ -3,36 +3,25 @@ import EmailSender from './actions/sendEmail'
 import NotFound from './actions/notFound'
 import CloseQuestion from './actions/closeQuestion'
 import ServiceMenu from './actions/ourServices'
+import Alert from './actions/alert'
+import PriceList from './actions/priceList'
+import Reservation from './actions/reservation'
 import { TrainersServices, Trainers } from './actions/trainersServices'
-import { LymfoService, LymfoPrices } from './actions/lymfo'
-import { FitnessServices, FitnessPrices } from './actions/fitness'
+import { LymfoService } from './actions/lymfo'
+import { FitnessServices } from './actions/fitness'
+import { SaunaService } from './actions/sauna'
+import { BodySpaceService } from './actions/bodySpace'
+import { ImooveService } from './actions/imoove'
 import {
     Faq,
     FaqAnswer,
-    PricesAnswer,
     ContactsAnswer,
     OpeningHoursAnswer
 } from './actions/faq'
 import {
     LessonsService,
-    LessonPrices,
     JoinLesson
 } from './actions/lessons'
-import {
-    SaunaService,
-    SaunaPrices,
-    ReserveSauna
-} from './actions/sauna'
-import {
-    BodySpaceService,
-    BodySpacePrices,
-    ReserveBodySpace
-} from './actions/bodySpace'
-import {
-    ImooveService,
-    ImoovePrices,
-    ReserveImoove
-} from './actions/imoove'
 
 export const routes = [
     {
@@ -41,110 +30,96 @@ export const routes = [
         payload: /help-.*/
     },
     {
-        action: ServiceMenu,
-        payload: 'ourServices'
+        payload: 'ourServices',
+        action: ServiceMenu
     },
     {
+        intent: 'Help',
         action: CloseQuestion,
         payload: 'help'
+    },
+    {
+        action: Alert,
+        payload: /outcome-.*/
     },
     {
         path: '404',
         action: NotFound
     },
     {
-        action: BodySpaceService,
-        payload: 'bodySpace'
+        intent: 'PriceList',
+        payload: /priceList-.*/,
+        action: PriceList
     },
     {
-        action: BodySpacePrices,
-        payload: 'bodySpacePrices'
+        intent: 'Reservation',
+        payload: /reserve-.*/,
+        action: Reservation
     },
     {
-        action: ReserveBodySpace,
-        payload: 'reserveBodySpace'
+        intent: 'AskStaff',
+        payload: 'personalQuery',
+        action: EmailSender,
     },
     {
-        action: ImooveService,
-        payload: 'imoove'
-    },
-    {
-        action: ImoovePrices,
-        payload: 'imoovePrices'
-    },
-    {
-        action: ReserveImoove,
-        payload: 'reserveImoove'
-    },
-    {
-        action: SaunaService,
-        payload: 'sauna'
-    },
-    {
-        action: SaunaPrices,
-        payload: 'saunaPrices'
-    },
-    {
-        action: ReserveSauna,
-        payload: 'reserveSauna'
-    },
-    {
-        action: LessonsService,
-        payload: 'lessons'
-    },
-    {
-        action: LessonPrices,
-        payload: 'lessonsPrices'
-    },
-    {
-        action: JoinLesson,
-        payload: 'joinLesson'
-    },
-    {
-        action: LymfoService,
-        payload: 'lymfo'
-    },
-    {
-        action: LymfoPrices,
-        payload: 'lymfoPrices'
-    },
-    {
-        action: FitnessServices,
-        payload: 'fitness'
-    },
-    {
-        action: FitnessPrices,
-        payload: 'fitnessPrices'
-    },
-    {
-        action: FaqAnswer,
-        payload: /faq-.*/
+        payload: /faq-.*/,
+        action: FaqAnswer
     },
     {
         payload: 'faq',
         action: Faq,
     },
     {
+        payload: 'bodySpace',
+        intent: 'BodySpace',
+        action: BodySpaceService
+    },
+    {
+        intent: 'Imoove',
+        action: ImooveService,
+        payload: 'imoove'
+    },
+    {
+        intent: 'Sauna',
+        action: SaunaService,
+        payload: 'sauna'
+    },
+    {
+        payload: 'lessons',
+        intent: 'Lessons',
+        action: LessonsService
+    },
+    {
+        action: JoinLesson,
+        payload: 'joinLesson'
+    },
+    {
+        intent: 'Lymfo',
+        action: LymfoService,
+        payload: 'lymfo'
+    },
+    {
+        intent: 'Fitness',
+        action: FitnessServices,
+        payload: 'fitness'
+    },
+    {
+        intent: 'TrainersServices',
         action: TrainersServices,
         payload: 'trainersServices'
     },
     {
+        intent: 'Trainers',
         action: Trainers,
         payload: 'trainers'
     },
     {
-        payload: 'personalQuery',
-        action: EmailSender,
-    },
-    {
-        payload: 'prices',
-        action: PricesAnswer,
-    },
-    {
+        intent: 'Contacts',
         payload: 'contacts',
         action: ContactsAnswer,
     },
     {
+        intent: 'Hours',
         payload: 'openingHours',
         action: OpeningHoursAnswer,
     }

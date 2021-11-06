@@ -6,30 +6,34 @@ export default class BotonicPluginWit {
     }
 
     async pre({ input, session, lastRoutePath }) {
+        console.log(input.payload)
         let intent = null
         let confidence = 0
         let entities = []
         let intents = []
 
-        try {
-            let response = await axios({
-                url: 'https://api.wit.ai/message',
-                params: {
-                    q: input.data,
-                    verbose: true,
-                },
-                headers: {
-                    Authorization: `Bearer ${this.options.token}`
+        if (!input.payload) {
+            try {
+                let response = await axios({
+                    url: 'https://api.wit.ai/message',
+                    params: {
+                        q: input.data,
+                        verbose: true,
+                    },
+                    headers: {
+                        Authorization: `Bearer ${this.options.token}`
+                    }
+                })
+                console.log(response)
+                if (response) {
+                    intent = response.data.intents[0].name
+                    confidence = response.data.intents[0].confidence
+                    entities = response.data.entities
+                    console.log(intent)
+                    console.log(confidence)
                 }
-            })
-            console.log(response)
-            if (response) {
-                intent = response.data.intents[0].name
-                confidence = response.data.intents[0].confidence
-                entities = response.data.entities
-                console.log(intent)
-            }
-        } catch (e) { }
+            } catch (e) { console.log('There is error in ai-plugin' + e) }           
+        }
 
         Object.assign(input, { intent, confidence, intents, entities })
 

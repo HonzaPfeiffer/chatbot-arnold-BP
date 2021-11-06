@@ -15,7 +15,7 @@ class Faq extends React.Component {
                         <Button key={i} payload={'faq-' + key}>{faqAnswers[key].question}</Button>
                     ))
                 }
-                <Button payload="prices">Náš ceník</Button>
+                <Button payload="priceList-all">Náš ceník</Button>
                 <Button payload="contacts">Kontakt na personál</Button>
                 <Button payload="openingHours">Jak máme otevřeno?</Button>
             </>

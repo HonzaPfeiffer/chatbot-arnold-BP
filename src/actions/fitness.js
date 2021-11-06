@@ -12,7 +12,7 @@ class FitnessServices extends React.Component {
           <Button payload='bodySpace'>Co je Body-Space</Button>
           <Button payload='imoove'>Co je Imoove</Button>
           <Button payload='openingHours'>Jak máme otevřeno?</Button>
-          <Button payload='FitnessPrices'>Ukázat ceník</Button>
+          <Button payload='priceList-fitness'>Ukázat ceník</Button>
           <Button payload='help-no'>Ukončit konverzaci</Button>
           <Button payload='help-yes'>Vrátit se do hlavního menu</Button>
         </Text>
