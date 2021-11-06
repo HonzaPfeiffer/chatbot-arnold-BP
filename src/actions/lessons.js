@@ -1,6 +1,7 @@
 import React from 'react'
 import { Text, Button } from '@botonic/react'
 import Close from './closeQuestion'
+import LessonsForm from '../webchat/lessonsFormMessage'
 
 class LessonsService extends React.Component {
   render() {
@@ -18,23 +19,12 @@ class LessonsService extends React.Component {
   }
 }
 
-class LessonPrices extends React.Component {
-    render() {
-      return (
-        <>
-          <Text>Ceník lekcí</Text>
-          <Close></Close>
-        </>
-      )
-    }
-}
-
 class JoinLesson extends React.Component {
     render() {
       return (
         <>
           <Text>Pro přihlášení zvolte jednu z lekcí</Text>
-          <Close></Close>
+          <LessonsForm />
         </>
       )
     }
@@ -42,6 +32,5 @@ class JoinLesson extends React.Component {
 
 export {
     LessonsService,
-    LessonPrices,
     JoinLesson
 }

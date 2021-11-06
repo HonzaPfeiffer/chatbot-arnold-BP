@@ -39,8 +39,8 @@ class EmailForm extends React.Component {
     console.log(this.verifiedForm())
     if (this.verifiedForm()) {
       this.setState({ error: false, edit: false })
-      const payload = 'help'
-      this.sendEmail(this.state.email, this.state.message)
+      const payload = 'alert-success'
+      //this.sendEmail(this.state.email, this.state.message)
       this.context.sendPayload(payload)
     } else {
       this.setState({ error: true })

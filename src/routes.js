@@ -40,7 +40,7 @@ export const routes = [
     },
     {
         action: Alert,
-        payload: /outcome-.*/
+        payload: /alert-.*/
     },
     {
         path: '404',
@@ -90,8 +90,9 @@ export const routes = [
         action: LessonsService
     },
     {
+        payload: 'joinLesson',
+        intent: 'JoinLessons',
         action: JoinLesson,
-        payload: 'joinLesson'
     },
     {
         intent: 'Lymfo',
