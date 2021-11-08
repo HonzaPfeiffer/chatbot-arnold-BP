@@ -4,10 +4,7 @@ import { TextField } from '@mui/material'
 export function MyTextField(props) {
   let helperText = ''
   if (props.error)
-    helperText =
-      props.error && props.value === ''
-        ? 'Toto pole je povinné'
-        : props.errorMessage || ''
+    helperText = 'Toto pole je povinné'
   return (
     <TextField
       variant='filled'
@@ -16,7 +13,7 @@ export function MyTextField(props) {
       label={props.label}
       value={props.value}
       onChange={props.onChange}
-      error={helperText !== ''}
+      error={props.error}
       helperText={helperText}
       disabled={props.disabled}
       color='success'
@@ -28,10 +25,7 @@ export function MyTextField(props) {
 export function MyTextArea(props) {
   let helperText = ''
   if (props.error)
-    helperText =
-      props.error && props.value === ''
-        ? 'Toto pole je povinné'
-        : props.errorMessage || ''
+    helperText = 'Toto pole je povinné'
   return (
     <TextField
       variant='filled'
@@ -41,7 +35,7 @@ export function MyTextArea(props) {
       label={props.label}
       value={props.value}
       onChange={props.onChange}
-      error={helperText !== ''}
+      error={props.error}
       helperText={helperText}
       disabled={props.disabled}
       color='success'

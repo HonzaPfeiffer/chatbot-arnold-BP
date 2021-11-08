@@ -3,7 +3,6 @@ import 'date-fns'
 import '@material-ui/pickers'
 import styled from 'styled-components'
 import { WebchatContext, customMessage } from '@botonic/react'
-import czLocale from 'date-fns/locale/cs'
 import DateFnsUtils from '@date-io/date-fns'
 import { MyTextField } from '../utils'
 import {
