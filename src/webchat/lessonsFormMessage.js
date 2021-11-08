@@ -29,6 +29,7 @@ class LessonsForm extends React.Component {
         this.handlePhone = this.handlePhone.bind(this)
         this.handleLesson = this.handleLesson.bind(this)
         this.state = {
+            lessons: props.data.lessons,
             name: '',
             phone: '',
             lessonID: 0,
@@ -79,13 +80,6 @@ class LessonsForm extends React.Component {
     }
 
     render() {
-        const lessonOptions = [
-            { id: '1', lesson: 'test1' },
-            { id: '2', lesson: 'test2' },
-            { id: '3', lesson: 'test3' },
-            { id: '4', lesson: 'test4' },
-            { id: '5', lesson: 'test5' },
-        ]
         return (
             <Form>
                 <p style={{ fontSize: 10, marginBottom: '5px' }}>
@@ -94,26 +88,26 @@ class LessonsForm extends React.Component {
                     </em>
                 </p>
                 <Autocomplete
-                disabled={!this.state.edit}
-                options={lessonOptions}
-                getOptionLabel={option => option.lesson}
-                onChange={(newValue) => {
-                    this.handleLesson(newValue)
-                }}
-                style={{
-                    width: '100%',
-                    margin: '0px -63px 5px 0px',
-                }}
-                renderInput={params => (
-                    <MyTextField
-                    required={true}
-                    label='Lekce'
-                    params={params}
-                    value={this.state.lessonID}
-                    error={this.state.error}
                     disabled={!this.state.edit}
-                    />
-                )}
+                    options={this.state.lessons}
+                    getOptionLabel={option => `${option.lesson} - ${option.day} ${option.when}`}
+                    onChange={(event, newValue) => {
+                        this.handleLesson(newValue)
+                    }}
+                    style={{
+                        width: '100%',
+                        margin: '0px -63px 5px 0px',
+                    }}
+                    renderInput={params => (
+                        <MyTextField
+                            required={true}
+                            label='Lekce'
+                            params={params}
+                            value={this.state.lessonID}
+                            error={this.state.error}
+                            disabled={!this.state.edit}
+                        />
+                    )}
                 />
                 <MyTextField
                     required={true}
