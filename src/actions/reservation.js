@@ -1,6 +1,6 @@
 import React from 'react'
 import { Text } from '@botonic/react'
-import Close from './closeQuestion'
+import ReservationForm from '../webchat/reservationFormMessage'
 
 export default class extends React.Component {
     static async botonicInit(request) {
@@ -31,7 +31,7 @@ export default class extends React.Component {
         return (
             <>
                 <Text>{this.props.answer}</Text>
-                <Close></Close>
+                <ReservationForm />
             </>
         )
     }

@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { WebchatContext, customMessage } from '@botonic/react'
+import Autocomplete from '@mui/material/Autocomplete';
 import { MyTextField } from '../utils'
 
 const Form = styled.div`
@@ -24,23 +25,23 @@ class LessonsForm extends React.Component {
     static contextType = WebchatContext
     constructor(props) {
         super(props)
-        this.handleEmail = this.handleEmail.bind(this)
-        this.handleMessage = this.handleMessage.bind(this)
+        this.handleName = this.handleName.bind(this)
+        this.handlePhone = this.handlePhone.bind(this)
+        this.handleLesson = this.handleLesson.bind(this)
         this.state = {
-            email: '',
+            name: '',
             phone: '',
-            lessonID: '',
+            lessonID: 0,
             error: false,
             edit: true
         }
     }
 
     close() {
-        console.log(this.verifiedForm())
         if (this.verifiedForm()) {
             this.setState({ error: false, edit: false })
             const payload = 'alert-success'
-            //this.sendEmail(this.state.email, this.state.message)
+            this.sendApplication()
             this.context.sendPayload(payload)
         } else {
             this.setState({ error: true })
@@ -49,8 +50,9 @@ class LessonsForm extends React.Component {
 
     verifiedForm() {
         if (
-            this.state.email === '' ||
-            this.state.message === ''
+            this.state.name === '' ||
+            this.state.phone === '' ||
+            this.state.lessonID === 0
         ) {
             return false
         } else {
@@ -58,23 +60,21 @@ class LessonsForm extends React.Component {
         }
     }
 
-    sendApplication(email, phone, lessonID) {
-
+    sendApplication() {
+        console.log(this.state.name)
+        console.log(this.state.phone)
+        console.log(this.state.lessonID)
     }
 
     handleLesson(value) {
-        console.log('handle ' + event.target.value)
-        this.setState({ lessonID: event.target.value })
-        this.setState({ lessonID: value ? value.guests : '' })
+        this.setState({ lessonID: value ? value.id : 0 })
     }
 
-    handleEmail(event) {
-        console.log('handle ' + event.target.value)
-        this.setState({ email: event.target.value })
+    handleName(event) {
+        this.setState({ name: event.target.value })
     }
 
     handlePhone(event) {
-        console.log('handle ' + event.target.value)
         this.setState({ phone: event.target.value })
     }
 
@@ -97,8 +97,7 @@ class LessonsForm extends React.Component {
                 disabled={!this.state.edit}
                 options={lessonOptions}
                 getOptionLabel={option => option.lesson}
-                getOptionSelected={(option, value) => option.id == value.id}
-                onChange={(event, newValue) => {
+                onChange={(newValue) => {
                     this.handleLesson(newValue)
                 }}
                 style={{
@@ -118,18 +117,18 @@ class LessonsForm extends React.Component {
                 />
                 <MyTextField
                     required={true}
-                    label='Email'
+                    label='Jméno a příjmení'
                     error={this.state.error}
-                    value={this.state.email}
-                    onChange={this.handleEmail}
+                    value={this.state.name}
+                    onChange={this.handleName}
                     disabled={!this.state.edit}
                 />
                 <MyTextField
                     required={true}
                     label='Telefon'
                     error={this.state.error}
-                    value={this.state.message}
-                    onChange={this.handleMessage}
+                    value={this.state.phone}
+                    onChange={this.handlePhone}
                     disabled={!this.state.edit}
                 />
                 <Button disabled={!this.state.edit} onClick={() => this.close()}>Odeslat přihlášku</Button>
@@ -154,5 +153,6 @@ export default customMessage({
         enableTimestamps: false,
     },
 })
+
 
 
