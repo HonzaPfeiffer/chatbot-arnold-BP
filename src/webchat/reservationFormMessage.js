@@ -1,13 +1,16 @@
 import React from 'react'
+import 'date-fns'
+import '@material-ui/pickers'
 import styled from 'styled-components'
 import { WebchatContext, customMessage } from '@botonic/react'
-import MobileDateTimePicker from '@mui/lab/MobileDateTimePicker'
-import LocalizationProvider from '@mui/lab/LocalizationProvider'
-import Stack from '@mui/material/Stack'
-import TextField from '@mui/material/TextField'
-import DateTimePicker from '@mui/lab/DateTimePicker'
-import AdapterDateFns from '@mui/lab/AdapterDateFns'
+import czLocale from 'date-fns/locale/cs'
+import DateFnsUtils from '@date-io/date-fns'
 import { MyTextField } from '../utils'
+import {
+    MuiPickersUtilsProvider,
+    KeyboardDatePicker,
+    KeyboardTimePicker
+  } from '@material-ui/pickers'
 
 const Form = styled.div`
   display: flex;
@@ -89,31 +92,50 @@ class ReservationForm extends React.Component {
             <Form>
                 <p style={{ fontSize: 10, marginBottom: '5px' }}>
                     <em>
-                        Formulář pro přihlášení na lekci
+                        Formulář pro rezervaci
                     </em>
                 </p>
-                <LocalizationProvider dateAdapter={AdapterDateFns}>
-                    <Stack spacing={3}>
-                        <MobileDateTimePicker
-                            clearable
-                            value={this.state.date}
-                            todayText="teď"
-                            inputFormat="yyyy/MM/dd hh:mm a"
-                            onChange={(newValue) => this.handleDate(newValue)}
-                            renderInput={(params) => (
-                                <TextField {...params}
-                                    helperText={this.state.error === true
-                                        ? 'Toto pole je povinné'
-                                        : ''}
-                                    error={this.state.date === null && this.state.error === true}
-                                    style={{
-                                        width: '100%'
-                                    }}
-                                />
-                            )}
-                        />
-                    </Stack>
-                </LocalizationProvider>
+                <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                    <KeyboardDatePicker
+                        required={true}
+                        label='Datum'
+                        disabled={!this.state.edit}
+                        inputVariant='filled'
+                        onChange={this.handleDate}
+                        value={this.state.date}
+                        ampm={false}
+                        disablePast
+                        format='dd/MM/yyyy'
+                        error={this.state.date === null && this.state.error === true}
+                        helperText={
+                        this.state.date === null && this.state.error === true
+                            ? 'Toto pole je povinné'
+                            : ' '
+                        }
+                        style={{
+                        width: '80%',
+                        }}
+                    />
+                    <KeyboardTimePicker
+                        required={true}
+                        label='Čas'
+                        disabled={!this.state.edit}
+                        inputVariant='filled'
+                        onChange={this.handleDate}
+                        value={this.state.date}
+                        ampm={false}
+                        disablePast
+                        error={this.state.date === null && this.state.error === true}
+                        helperText={
+                        this.state.date === null && this.state.error === true
+                            ? 'Toto pole je povinné'
+                            : ' '
+                        }
+                        style={{
+                        width: '80%',
+                        }}
+                    />
+                </MuiPickersUtilsProvider>
                 <MyTextField
                     required={true}
                     label='Jméno a příjmení'
