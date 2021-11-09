@@ -31,8 +31,7 @@
     "@mui/material": "^5.0.6",
     "axios": "^0.24.0",
     "date-fns": "^2.25.0",
-    "dayjs": "^1.10.7",
-    "msw": "^0.35.0"
+    "dayjs": "^1.10.7"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",

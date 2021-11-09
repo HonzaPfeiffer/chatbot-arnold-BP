@@ -7,6 +7,7 @@ class LessonsService extends React.Component {
   static contextType = RequestContext
 
   static async botonicInit({ input, session, params, lastRoutePath }) {
+    console.log(session.lessons)
     if (!session.lessons) {
       const response = await fetch('https://61898f5ed0821900178d7a42.mockapi.io/api/v1/lessons/')
       session.lessons = await response.json()   
@@ -32,6 +33,7 @@ class JoinLesson extends React.Component {
   static contextType = RequestContext
 
   static async botonicInit({ input, session, params, lastRoutePath }) {
+    console.log(session.lessons)
     if (!session.lessons) {
       const response = await fetch('https://61898f5ed0821900178d7a42.mockapi.io/api/v1/lessons/')
       session.lessons = await response.json()   
