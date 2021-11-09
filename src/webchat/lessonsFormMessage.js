@@ -41,9 +41,7 @@ class LessonsForm extends React.Component {
     close() {
         if (this.verifiedForm()) {
             this.setState({ error: false, edit: false })
-            const payload = 'alert-success'
             this.sendApplication()
-            this.context.sendPayload(payload)
         } else {
             this.setState({ error: true })
         }
@@ -62,9 +60,26 @@ class LessonsForm extends React.Component {
     }
 
     sendApplication() {
-        console.log(this.state.name)
-        console.log(this.state.phone)
-        console.log(this.state.lessonID)
+        fetch('https://61898f5ed0821900178d7a42.mockapi.io/api/v1/joinlesson', {
+            method: "POST",
+            body: {
+              name: this.state.name,
+              phone: this.state.phone,
+              lessonID: this.state.lessonID
+            }
+          })
+            .then(response => {
+              console.log(response)
+              if (response.status === 200 || response.status === 201) {
+                this.context.sendPayload('alert-success')
+              } else {
+                this.context.sendPayload('alert-failure')
+              }
+            })
+            .catch(err => {
+              console.error(err)
+              this.context.sendPayload('alert-failure')
+            })
     }
 
     handleLesson(value) {
@@ -142,9 +157,9 @@ export default customMessage({
             boxShadow: 'none',
             paddingLeft: '5px',
         },
-        imageStyle: { display: 'none' },
+        imagestyle: { display: 'none' },
         blob: false,
-        enableTimestamps: false,
+        enabletimestamps: false,
     },
 })
 

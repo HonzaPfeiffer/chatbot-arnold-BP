@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import { WebchatContext, customMessage } from '@botonic/react'
 import { MyTextField, MyTextArea } from '../utils'
-import emailConfig from '../assets/emailConfig.json'
 
 const Form = styled.div`
   display: flex;
@@ -36,12 +35,9 @@ class EmailForm extends React.Component {
   }
 
   close() {
-    console.log(this.verifiedForm())
     if (this.verifiedForm()) {
       this.setState({ error: false, edit: false })
-      const payload = 'alert-success'
-      //this.sendEmail(this.state.email, this.state.message)
-      this.context.sendPayload(payload)
+      this.sendEmail()
     } else {
       this.setState({ error: true })
     }
@@ -58,48 +54,26 @@ class EmailForm extends React.Component {
     }
   }
 
-  sendEmail(email, message) {
-    console.log(email)
-    console.log(message)
-    console.log(emailConfig.email)
-    console.log(emailConfig.email)
-    fetch(emailConfig.url, {
+  sendEmail() {
+    fetch('https://61898f5ed0821900178d7a42.mockapi.io/api/v1/sendemail', {
       method: "POST",
-      mode: "no-cors",
-      credentials: 'same-origin',
-      headers: {
-        "content-type": "application/json",
-        "x-rapidapi-key": emailConfig.token,
-        "x-rapidapi-host": emailConfig.host
-      },
       body: {
-        "personalizations": [
-          {
-            "to": [
-              {
-                "email": emailConfig.email
-              }
-            ],
-            "subject": emailConfig.subject
-          }
-        ],
-        "from": {
-          "email": email
-        },
-        "content": [
-          {
-            "type": "text/plain",
-            "value": message
-          }
-        ]
+        from: this.state.email,
+        message: this.state.message
       }
     })
       .then(response => {
-        console.log(response);
+        console.log(response)
+        if (response.status === 200 || response.status === 201) {
+          this.context.sendPayload('alert-success')
+        } else {
+          this.context.sendPayload('alert-failure')
+        }
       })
       .catch(err => {
-        console.error(err);
-      });
+        console.error(err)
+        this.context.sendPayload('alert-failure')
+      })
   }
 
   handleEmail(event) {
@@ -153,8 +127,8 @@ export default customMessage({
       boxShadow: 'none',
       paddingLeft: '5px',
     },
-    imageStyle: { display: 'none' },
+    imagestyle: { display: 'none' },
     blob: false,
-    enableTimestamps: false,
+    enabletimestamps: false,
   },
 })
