@@ -55,12 +55,15 @@ class EmailForm extends React.Component {
   }
 
   sendEmail() {
-    fetch('https://61898f5ed0821900178d7a42.mockapi.io/api/v1/sendemail', {
+    fetch('https://testapi.io/api/arnold/resource/sendemail', {
       method: "POST",
-      body: {
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
         from: this.state.email,
         message: this.state.message
-      }
+      })
     })
       .then(response => {
         console.log(response)

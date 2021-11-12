@@ -68,14 +68,17 @@ class ReservationForm extends React.Component {
     }
 
     sendReservation() {
-        fetch('https://61898f5ed0821900178d7a42.mockapi.io/api/v1/reservation', {
+        fetch('https://testapi.io/api/arnold/resource/reservation', {
             method: "POST",
-            body: {
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
               name: this.state.name,
               phone: this.state.phone,
               date: this.state.date,
               serviceID: this.state.serviceID
-            }
+            })
           })
             .then(response => {
               console.log(response)

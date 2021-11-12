@@ -60,13 +60,16 @@ class LessonsForm extends React.Component {
     }
 
     sendApplication() {
-        fetch('https://61898f5ed0821900178d7a42.mockapi.io/api/v1/joinlesson', {
+        fetch('https://testapi.io/api/arnold/resource/joinlesson', {
             method: "POST",
-            body: {
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
               name: this.state.name,
               phone: this.state.phone,
-              lessonID: this.state.lessonID
-            }
+              lessonID: this.state.lessonID,
+            })
           })
             .then(response => {
               console.log(response)
