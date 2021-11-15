@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { WebchatContext, customMessage } from '@botonic/react'
 import { MyTextField, MyTextArea } from '../utils'
+import config from '../assets/chatbotConfig.json'
 
 const Form = styled.div`
   display: flex;
@@ -55,7 +56,7 @@ class EmailForm extends React.Component {
   }
 
   sendEmail() {
-    fetch('https://testapi.io/api/arnold/resource/sendemail', {
+    fetch(config.emailConfig.serviceUrl, {
       method: "POST",
       headers: {
         'Content-Type': 'application/json'

@@ -1,8 +1,7 @@
 import React from 'react'
 import { Text, Button } from '@botonic/react'
-import Close from './closeQuestion'
 
-class FitnessServices extends React.Component {
+export default class extends React.Component {
   render() {
     return (
       <>
@@ -19,20 +18,4 @@ class FitnessServices extends React.Component {
       </>
     )
   }
-}
-
-class FitnessPrices extends React.Component {
-    render() {
-      return (
-        <>
-          <Text>Ceník posilovny</Text>
-          <Close></Close>
-        </>
-      )
-    }
-}
-
-export {
-    FitnessServices,
-    FitnessPrices
 }

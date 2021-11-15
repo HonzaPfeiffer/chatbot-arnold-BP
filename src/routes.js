@@ -7,11 +7,11 @@ import Alert from './actions/alert'
 import PriceList from './actions/priceList'
 import Reservation from './actions/reservation'
 import { TrainersServices, Trainers } from './actions/trainersServices'
-import { LymfoService } from './actions/lymfo'
-import { FitnessServices } from './actions/fitness'
-import { SaunaService } from './actions/sauna'
-import { BodySpaceService } from './actions/bodySpace'
-import { ImooveService } from './actions/imoove'
+import LymfoService from './actions/lymfo'
+import FitnessServices from './actions/fitness'
+import SaunaService from './actions/sauna'
+import BodySpaceService from './actions/bodySpace'
+import ImooveService from './actions/imoove'
 import {
     Faq,
     FaqAnswer,

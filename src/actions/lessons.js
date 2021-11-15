@@ -2,14 +2,14 @@ import React from 'react'
 import { Text, Button, RequestContext } from '@botonic/react'
 import LessonsForm from '../webchat/lessonsFormMessage'
 import LessonsList from '../webchat/lessonsListMessage'
+import config from '../assets/chatbotConfig.json'
 
 class LessonsService extends React.Component {
   static contextType = RequestContext
 
   static async botonicInit({ input, session, params, lastRoutePath }) {
-    console.log(session.lessons)
     if (!session.lessons) {
-      const response = await fetch('https://testapi.io/api/arnold/lessons')
+      const response = await fetch(config.apiConfig.lessonsUrl)
       session.lessons = await response.json()   
     }
   }
@@ -33,9 +33,8 @@ class JoinLesson extends React.Component {
   static contextType = RequestContext
 
   static async botonicInit({ input, session, params, lastRoutePath }) {
-    console.log(session.lessons)
     if (!session.lessons) {
-      const response = await fetch('https://testapi.io/api/arnold/lessons')
+      const response = await fetch(config.apiConfig.lessonsUrl)
       session.lessons = await response.json()   
     }
   }

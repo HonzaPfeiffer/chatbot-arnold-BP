@@ -1,8 +1,7 @@
 import React from 'react'
 import { Text, Button } from '@botonic/react'
-import Close from './closeQuestion'
 
-class ImooveService extends React.Component {
+export default class extends React.Component {
     render() {
         return (
             <>
@@ -16,20 +15,4 @@ class ImooveService extends React.Component {
             </>
         )
     }
-}
-
-class ReserveImoove extends React.Component {
-    render() {
-        return (
-            <>
-                <Text>Můžete vybrat termín rezervace Imoove.</Text>
-                <Close></Close>
-            </>
-        )
-    }
-}
-
-export {
-    ImooveService,
-    ReserveImoove
 }

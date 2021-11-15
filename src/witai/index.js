@@ -15,7 +15,7 @@ export default class BotonicPluginWit {
         if (!input.payload) {
             try {
                 let response = await axios({
-                    url: 'https://api.wit.ai/message',
+                    url: this.options.url,
                     params: {
                         q: input.data,
                         verbose: true,

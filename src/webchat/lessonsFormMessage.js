@@ -1,8 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import { WebchatContext, customMessage } from '@botonic/react'
-import Autocomplete from '@mui/material/Autocomplete';
+import Autocomplete from '@mui/material/Autocomplete'
 import { MyTextField } from '../utils'
+import config from '../assets/chatbotConfig.json'
 
 const Form = styled.div`
   display: flex;
@@ -33,6 +34,7 @@ class LessonsForm extends React.Component {
             name: '',
             phone: '',
             lessonID: 0,
+            lessonError: '',
             error: false,
             edit: true
         }
@@ -55,12 +57,19 @@ class LessonsForm extends React.Component {
         ) {
             return false
         } else {
-            return true
+            const service = this.state.lessons.filter(service => service.id === this.state.lessonID)
+            console.log(service)
+            if (service[0].occupied === service[0].capacity) {
+                this.setState({ lessonError: 'Ve zvolené lekci nejsou volná místa.' })
+                return false 
+            } else {
+                return true
+            }
         }
     }
 
     sendApplication() {
-        fetch('https://testapi.io/api/arnold/resource/joinlesson', {
+        fetch(config.apiConfig.joinLessonUrl, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
@@ -122,6 +131,7 @@ class LessonsForm extends React.Component {
                             label='Lekce'
                             params={params}
                             value={this.state.lessonID}
+                            helperText={this.state.lessonError}
                             error={this.state.error}
                             disabled={!this.state.edit}
                         />

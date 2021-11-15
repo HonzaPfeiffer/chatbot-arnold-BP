@@ -1,6 +1,5 @@
 import React from 'react'
 import { WebchatContext, customMessage } from '@botonic/react'
-import styled from 'styled-components'
 
 class LessonsList extends React.Component {
     static contextType = WebchatContext

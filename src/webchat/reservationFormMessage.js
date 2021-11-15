@@ -9,7 +9,8 @@ import {
     MuiPickersUtilsProvider,
     KeyboardDatePicker,
     KeyboardTimePicker
-  } from '@material-ui/pickers'
+} from '@material-ui/pickers'
+import config from '../assets/chatbotConfig.json'
 
 const Form = styled.div`
   display: flex;
@@ -36,14 +37,16 @@ class ReservationForm extends React.Component {
         this.handlePhone = this.handlePhone.bind(this)
         this.handleDate = this.handleDate.bind(this)
         this.state = {
-            serviceID: 0,
+            serviceID: props.service.id,
             name: '',
             phone: '',
             date: new Date(),
-            service: null,
+            service: props.service,
             error: false,
+            dateError: '',
             edit: true
         }
+        console.log(props.service)
     }
 
     close() {
@@ -61,36 +64,51 @@ class ReservationForm extends React.Component {
             this.state.phone === '' ||
             this.state.date === ''
         ) {
+            this.setState({ dateError: 'Toto pole je povinné' })
             return false
         } else {
-            return true
+            const day = this.state.date.getDay()
+            const selectedTime = this.state.date.toLocaleTimeString()
+            const openTime = this.state.service.open
+            const closeTime = this.state.service.close
+            if (
+                selectedTime > openTime && 
+                selectedTime < closeTime &&
+                day !== 0 &&
+                day !== 6
+            ) {
+                return true
+            } else {
+                this.setState({ dateError: `Datum není v době Po-Pá ${openTime}-${closeTime}` })
+                return false   
+            }
         }
     }
 
     sendReservation() {
-        fetch('https://testapi.io/api/arnold/resource/reservation', {
+        fetch(config.apiConfig.reservationUrl, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-              name: this.state.name,
-              phone: this.state.phone,
-              date: this.state.date,
-              serviceID: this.state.serviceID
+                name: this.state.name,
+                phone: this.state.phone,
+                date: this.state.date,
+                serviceID: this.state.serviceID
             })
-          })
+        })
             .then(response => {
-              console.log(response)
-              if (response.status === 200 || response.status === 201) {
-                this.context.sendPayload('alert-success')
-              } else {
-                this.context.sendPayload('alert-failure')
-              }
+                console.log(response)
+                if (response.status === 200 || response.status === 201) {
+                    this.context.sendPayload('alert-success')
+                } else {
+                    this.context.sendPayload('alert-failure')
+                }
             })
             .catch(err => {
-              console.error(err)
-              this.context.sendPayload('alert-failure')
+                console.error(err)
+                this.context.sendPayload('alert-failure')
             })
     }
 
@@ -125,14 +143,11 @@ class ReservationForm extends React.Component {
                         ampm={false}
                         disablePast
                         format='dd/MM/yyyy'
-                        error={this.state.date === null && this.state.error === true}
-                        helperText={
-                        this.state.date === null && this.state.error === true
-                            ? 'Toto pole je povinné'
-                            : ' '
-                        }
+                        error={this.state.error}
+                        helperText={this.state.dateError}
                         style={{
-                        width: '80%',
+                            width: '80%',
+                            margin: '0px 0px 10px 0px',
                         }}
                     />
                     <KeyboardTimePicker
@@ -144,14 +159,11 @@ class ReservationForm extends React.Component {
                         value={this.state.date}
                         ampm={false}
                         disablePast
-                        error={this.state.date === null && this.state.error === true}
-                        helperText={
-                        this.state.date === null && this.state.error === true
-                            ? 'Toto pole je povinné'
-                            : ' '
-                        }
+                        error={this.state.error}
+                        helperText={this.state.dateError}
                         style={{
-                        width: '80%',
+                            width: '80%',
+                            margin: '0px 0px 5px 0px',
                         }}
                     />
                 </MuiPickersUtilsProvider>
@@ -171,7 +183,7 @@ class ReservationForm extends React.Component {
                     onChange={this.handlePhone}
                     disabled={!this.state.edit}
                 />
-                <Button disabled={!this.state.edit} onClick={() => this.close()}>Odeslat přihlášku</Button>
+                <Button disabled={!this.state.edit} onClick={() => this.close()}>Odeslat rezervaci</Button>
             </Form>
         )
     }

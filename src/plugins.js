@@ -1,9 +1,12 @@
+import config from './assets/chatbotConfig.json'
+
 export const plugins = [
     {
         id: 'wit',
         resolve: require('./witai/index.js'),
         options: {
-            token: 'F2X2FAEW6IYGT7NP6RJB5GRTXCGBNGQF'
+            url: config.aiConfig.serviceUrl,
+            token: config.aiConfig.token
         },
     },
 ]

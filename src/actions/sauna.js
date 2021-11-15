@@ -1,8 +1,7 @@
 import React from 'react'
 import { Text, Button } from '@botonic/react'
-import Close from './closeQuestion'
 
-class SaunaService extends React.Component {
+export default class extends React.Component {
   render() {
     return (
       <>
@@ -16,8 +15,4 @@ class SaunaService extends React.Component {
       </>
     )
   }
-}
-
-export {
-  SaunaService
 }
