@@ -2,6 +2,7 @@ import React from 'react'
 import { Text, Button } from '@botonic/react'
 import faqAnswers from '../assets/faqAnswers.json'
 import Close from './closeQuestion'
+import config from '../assets/chatbotConfig.json'
 
 class Faq extends React.Component {
     render() {
@@ -54,7 +55,9 @@ class ContactsAnswer extends React.Component {
     render() {
         return (
             <>
-                <Text>Kontakty</Text>
+                <Text>
+                    {`Kontakty: \n${config.contacts.address}, \n${config.contacts.email}, \n${config.contacts.tel} `}
+                </Text>
                 <Close></Close>
             </>
         )
@@ -65,7 +68,7 @@ class OpeningHoursAnswer extends React.Component {
     render() {
         return (
             <>
-                <Text>Otevírací doba</Text>
+                <Text>Otevírací doba {config.contacts.openingHours}</Text>
                 <Close></Close>
             </>
         )

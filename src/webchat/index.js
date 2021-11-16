@@ -1,5 +1,6 @@
-import logo from '../assets/logoFK.png';
-import EmailForm from './emailFormMessage';
+import logo from '../assets/logoFK.png'
+import EmailForm from './emailFormMessage'
+import config from '../assets/chatbotConfig.json'
 
 export const webchat = {
     theme: {
@@ -15,7 +16,7 @@ export const webchat = {
             image: logo
         },
         header: {
-            title: 'Chatbot Arnold',
+            title: config.title,
             style: {
                 background: 'black',
             }
