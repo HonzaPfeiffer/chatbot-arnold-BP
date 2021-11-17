@@ -11,6 +11,7 @@ Jedná se o nové revoluční podtlakové zařízení s běžícím pásem rozš
                     Můžete zvolit z následujících možností nebo se vrátit do hlavního menu.
                     <Button payload='reserve-body-space'>Rezervovat Body-Space</Button>
                     <Button payload='priceList-body-space'>Ukázat ceník</Button>
+                    <Button payload='fitness'>Zpět</Button>
                     <Button payload='help-yes'>Vrátit se do hlavního menu</Button>
                 </Text>
             </>

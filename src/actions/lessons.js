@@ -22,6 +22,7 @@ class LessonsService extends React.Component {
           Můžete zvolit možnost nebo se vrátit do hlavního menu.
           <Button payload='joinLesson'>Přihlásit se na lekci</Button>
           <Button payload='priceList' payload='priceList-lessons'>Ukázat ceník</Button>
+          <Button payload='ourServices'>Zpět</Button>
           <Button payload='help-yes'>Vrátit se do hlavního menu</Button>
         </Text>
       </>

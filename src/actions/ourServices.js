@@ -11,6 +11,7 @@ export default class extends React.Component {
                     <Button payload="sauna">Sauna</Button>
                     <Button payload="fitness">Posilovna</Button>
                     <Button payload="lymfo">Lymfodrenáž</Button>
+                    <Button payload="priceList-all">Ceník</Button>
                     <Button payload="help-yes">Vrátit se do hlavního menu</Button>
                 </Text>
             </>

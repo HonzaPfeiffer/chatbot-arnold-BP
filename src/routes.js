@@ -12,12 +12,18 @@ import FitnessServices from './actions/fitness'
 import SaunaService from './actions/sauna'
 import BodySpaceService from './actions/bodySpace'
 import ImooveService from './actions/imoove'
+import Greeting from './actions/greeting'
+import Intro from './actions/intro'
 import {
     Faq,
-    FaqAnswer,
-    ContactsAnswer,
-    OpeningHoursAnswer
+    FaqAnswer
 } from './actions/faq'
+import {
+    ContactMenu,
+    Contacts,
+    Address,
+    OpeningHours
+} from './actions/contacts'
 import {
     LessonsService,
     JoinLesson
@@ -25,16 +31,25 @@ import {
 
 export const routes = [
     {
+        action: Intro,
+        payload: 'intro'
+    },
+    {
         intent: 'Greeting',
+        action: Greeting,
+        payload: 'start'
+    },
+    {
+        intent: 'Help',
         action: MainMenu,
         payload: /help-.*/
     },
     {
+        intent: 'OurServices',
         payload: 'ourServices',
         action: ServiceMenu
     },
     {
-        intent: 'Help',
         action: CloseQuestion,
         payload: 'help'
     },
@@ -115,13 +130,22 @@ export const routes = [
         payload: 'trainers'
     },
     {
+        payload: 'contactMenu',
+        action: ContactMenu,
+    },    
+    {
         intent: 'Contacts',
         payload: 'contacts',
-        action: ContactsAnswer,
+        action: Contacts,
     },
     {
         intent: 'Hours',
         payload: 'openingHours',
-        action: OpeningHoursAnswer,
+        action: OpeningHours,
+    },
+    {
+        intent: 'Address',
+        payload: 'address',
+        action: Address,
     }
 ]

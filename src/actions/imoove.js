@@ -10,6 +10,7 @@ export default class extends React.Component {
                     Můžete zvolit z následujících možností nebo se vrátit do hlavního menu.
                     <Button payload='reserve-imoove'>Rezervovat Imoove</Button>
                     <Button payload='priceList-imoove'>Ukázat ceník</Button>
+                    <Button payload='fitness'>Zpět</Button>
                     <Button payload='help-yes'>Vrátit se do hlavního menu</Button>
                 </Text>
             </>
