@@ -57,6 +57,5 @@ export const webchat = {
     },
     onOpen: app => {
         app.addUserPayload('intro')
-        //app.addBotText('Dobrý den, jsem Arnold a můžu odpovědět na Vaše dotazy týkající se fitness centra, představit jeho služby a dovedu je také rezervovat lekce.')
     }
 }

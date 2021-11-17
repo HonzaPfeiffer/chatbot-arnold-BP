@@ -8,7 +8,7 @@ class Faq extends React.Component {
         return (
             <>
                 <Text>
-                    Vyberte, co vás zajímá.
+                    Vyberte, co Vás zajímá.
                 </Text>
                 {
                     Object.keys(faqAnswers).map((key, i) => (
