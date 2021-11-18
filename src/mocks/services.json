@@ -1,0 +1,25 @@
+{
+    "services": [
+        {
+            "id": 1,
+            "name": "imoove",
+            "title": "Imoove",
+            "open": "09:00",
+            "close": "18:00"
+        },
+        {
+            "id": 2,
+            "name": "sauna",
+            "title": "Sauna",
+            "open": "09:00",
+            "close": "18:00"
+        },
+        {
+            "id": 3,
+            "name": "body-space",
+            "title": "Body-Space",
+            "open": "09:00",
+            "close": "18:00"
+        }
+    ]
+}

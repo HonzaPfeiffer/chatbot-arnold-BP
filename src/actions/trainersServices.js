@@ -21,7 +21,7 @@ class Trainers extends React.Component {
   render() {
     return (
       <>
-        <Text>Spolupracujeme s těmito odborníky, více informací o nich na https://fitkulatak.cz/treneri/</Text>
+        <Text>Spolupracujeme s těmito odborníky, více informací o nich na https://fitkulatak.cz/treneri/.</Text>
         <Close></Close>
       </>
     )

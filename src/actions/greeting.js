@@ -7,7 +7,7 @@ export default class extends React.Component {
         return (
             <>
                 <Text>
-                    Dobrý den
+                    Dobrý den.
                 </Text>
                 <MainMenu />
                 <Text>

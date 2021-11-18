@@ -32,6 +32,7 @@
     "axios": "^0.24.0",
     "date-fns": "^2.25.0",
     "dayjs": "^1.10.7",
+    "isomorphic-fetch": "^3.0.0",
     "net": "^1.0.2"
   },
   "devDependencies": {

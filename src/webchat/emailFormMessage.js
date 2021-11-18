@@ -13,6 +13,7 @@ const Form = styled.div`
 `
 
 const Button = styled.button`
+  width: 80%;
   height: 40px;
   background: #2f2f2f;
   border-radius: 8px;
@@ -28,7 +29,7 @@ class EmailForm extends React.Component {
     this.handleEmail = this.handleEmail.bind(this)
     this.handleMessage = this.handleMessage.bind(this)
     this.state = {
-      email: '',
+      email: props.email ? props.email : '',
       message: '',
       error: false,
       edit: true
@@ -38,6 +39,10 @@ class EmailForm extends React.Component {
   close() {
     if (this.verifiedForm()) {
       this.setState({ error: false, edit: false })
+      this.context.updateUser({
+        name: this.state.name,
+        extra_data: { email: this.state.email },
+      })
       this.sendEmail()
     } else {
       this.setState({ error: true })

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Text, Button, RequestContext } from '@botonic/react'
+import fetch from 'isomorphic-fetch'
 import LessonsForm from '../webchat/lessonsFormMessage'
 import LessonsList from '../webchat/lessonsListMessage'
 import config from '../assets/chatbotConfig.json'
@@ -9,7 +10,10 @@ class LessonsService extends React.Component {
 
   static async botonicInit({ input, session, params, lastRoutePath }) {
     if (!session.lessons) {
-      const response = await fetch(config.apiConfig.lessonsUrl)
+      const response = await fetch(config.apiConfig.lessonsUrl, {
+        url: config.apiConfig.lessonsUrl,
+        method: 'GET'
+      })
       session.lessons = await response.json()   
     }
   }
@@ -32,18 +36,20 @@ class LessonsService extends React.Component {
 
 class JoinLesson extends React.Component {
   static contextType = RequestContext
-
   static async botonicInit({ input, session, params, lastRoutePath }) {
     if (!session.lessons) {
-      const response = await fetch(config.apiConfig.lessonsUrl)
+      const response = await fetch(config.apiConfig.lessonsUrl, {
+        url: config.apiConfig.lessonsUrl,
+        method: 'GET'
+      })
       session.lessons = await response.json()   
     }
   }
   render() {
     return (
       <>
-        <Text>Pro přihlášení zvolte jednu z lekcí</Text>
-        <LessonsForm data={this.context.session.lessons}/>
+        <Text>Pro přihlášení zvolte jednu z lekcí.</Text>
+        <LessonsForm data={this.context.session.lessons} name={this.context.session.user.name} phone={this.context.session.user.extra_data.phone}/>
       </>
     )
   }

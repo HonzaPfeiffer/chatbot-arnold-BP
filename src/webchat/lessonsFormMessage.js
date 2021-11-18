@@ -14,6 +14,7 @@ const Form = styled.div`
 `
 
 const Button = styled.button`
+  width: 80%;
   height: 40px;
   background: #2f2f2f;
   border-radius: 8px;
@@ -31,8 +32,8 @@ class LessonsForm extends React.Component {
         this.handleLesson = this.handleLesson.bind(this)
         this.state = {
             lessons: props.data.lessons,
-            name: '',
-            phone: '',
+            name: props.name ? props.name : '',
+            phone: props.phone ? props.phone : '',
             lessonID: 0,
             lessonError: '',
             error: false,
@@ -43,6 +44,10 @@ class LessonsForm extends React.Component {
     close() {
         if (this.verifiedForm()) {
             this.setState({ error: false, edit: false })
+            this.context.updateUser({
+                name: this.state.name,
+                extra_data: { phone: this.state.phone },
+            })
             this.sendApplication()
         } else {
             this.setState({ error: true })

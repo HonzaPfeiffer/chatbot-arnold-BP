@@ -18,6 +18,7 @@ class Faq extends React.Component {
                 <Button payload="priceList-all">Náš ceník</Button>
                 <Button payload="contacts">Kontakt na personál</Button>
                 <Button payload="openingHours">Jak máme otevřeno?</Button>
+                <Button payload="covid">Opatření COVID-19</Button>
             </>
         )
     }
@@ -39,7 +40,19 @@ class FaqAnswer extends React.Component {
     }
 }
 
+class CovidAnswer extends React.Component {
+    render() {
+        return (
+            <>
+                <Text>Informace o opatřeních ke COVID-19 najdete na hlavní stránce https://fitkulatak.cz/ v novinkách.</Text>
+                <Close></Close>
+            </>
+        )
+    }
+}
+
 export {
     Faq,
-    FaqAnswer
+    FaqAnswer,
+    CovidAnswer
 }

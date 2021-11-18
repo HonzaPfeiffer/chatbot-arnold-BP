@@ -16,7 +16,8 @@ import Greeting from './actions/greeting'
 import Intro from './actions/intro'
 import {
     Faq,
-    FaqAnswer
+    FaqAnswer,
+    CovidAnswer
 } from './actions/faq'
 import {
     ContactMenu,
@@ -83,6 +84,11 @@ export const routes = [
     {
         payload: 'faq',
         action: Faq,
+    },
+    {
+        intent: 'Covid',
+        payload: 'covid',
+        action: CovidAnswer,
     },
     {
         payload: 'bodySpace',

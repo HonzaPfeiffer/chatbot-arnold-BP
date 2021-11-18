@@ -55,6 +55,9 @@ export const webchat = {
             },
         }
     },
+    onInit: app => {
+        app.open()
+    },
     onOpen: app => {
         app.addUserPayload('intro')
     }

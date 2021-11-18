@@ -6,7 +6,7 @@ export default class extends React.Component {
     render() {
         return (
             <>
-                <Text>Kompletní ceník můžete najít zde https://www.fitkulatak.cz/cenik/</Text>
+                <Text>Kompletní ceník můžete najít zde https://www.fitkulatak.cz/cenik/.</Text>
                 <Close></Close>
             </>
         )

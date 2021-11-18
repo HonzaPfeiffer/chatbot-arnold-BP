@@ -12,9 +12,9 @@ export default class extends React.Component {
     return (
       <>
         {this.props.outcome == 'success' ? (
-          <Text>Vaše operace byla úspěšně provedena.</Text>
+          <Text>Vaš požadavek byl úspěšně proveden</Text>
         ) : (
-          <Text>Omlouvám se, ale něco se pokazilo.</Text>
+          <Text>Omlouvám se, ale něco se pokazilo</Text>
         )}
         <Close></Close>
       </>

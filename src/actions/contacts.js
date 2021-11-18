@@ -8,7 +8,7 @@ class ContactMenu extends React.Component {
         return (
             <>
                 <Text>
-                    Můžete zvolit z následujících možností
+                    Můžete zvolit z následujících možností.
                     <Button payload="contacts">Kontakty</Button>
                     <Button payload="address">Adresa</Button>
                     <Button payload="openingHours">Otevírací doba</Button>

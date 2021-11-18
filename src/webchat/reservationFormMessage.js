@@ -21,6 +21,7 @@ const Form = styled.div`
 `
 
 const Button = styled.button`
+  width: 80%;
   height: 40px;
   background: #2f2f2f;
   border-radius: 8px;
@@ -38,8 +39,8 @@ class ReservationForm extends React.Component {
         this.handleDate = this.handleDate.bind(this)
         this.state = {
             serviceID: props.service.id,
-            name: '',
-            phone: '',
+            name: props.name ? props.name : '',
+            phone: props.phone ? props.phone : '',
             date: new Date(),
             service: props.service,
             error: false,
@@ -52,6 +53,10 @@ class ReservationForm extends React.Component {
     close() {
         if (this.verifiedForm()) {
             this.setState({ error: false, edit: false })
+            this.context.updateUser({
+                name: this.state.name,
+                extra_data: { phone: this.state.phone },
+            })
             this.sendReservation()
         } else {
             this.setState({ error: true })
