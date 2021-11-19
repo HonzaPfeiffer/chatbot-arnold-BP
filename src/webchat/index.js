@@ -1,4 +1,7 @@
 import logo from '../assets/logoFK.png'
+import LessonsList from './lessonsListMessage'
+import LessonsForm from './lessonsFormMessage'
+import ReservationForm from './reservationFormMessage'
 import EmailForm from './emailFormMessage'
 import config from '../assets/chatbotConfig.json'
 
@@ -41,7 +44,7 @@ export const webchat = {
                     background: '#87d78d',
                 }            
             },
-            customTypes: [EmailForm],
+            customTypes: [EmailForm, ReservationForm, LessonsForm, LessonsList],
         },
         button: {
             style: {
@@ -56,6 +59,7 @@ export const webchat = {
         }
     },
     onInit: app => {
+        localStorage.removeItem('botonicState')
         app.open()
     },
     onOpen: app => {

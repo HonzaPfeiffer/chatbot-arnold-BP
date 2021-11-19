@@ -4,24 +4,22 @@ import fetch from 'isomorphic-fetch'
 import LessonsForm from '../webchat/lessonsFormMessage'
 import LessonsList from '../webchat/lessonsListMessage'
 import config from '../assets/chatbotConfig.json'
+import axios from 'axios'
 
 class LessonsService extends React.Component {
-  static contextType = RequestContext
-
-  static async botonicInit({ input, session, params, lastRoutePath }) {
-    if (!session.lessons) {
-      const response = await fetch(config.apiConfig.lessonsUrl, {
-        url: config.apiConfig.lessonsUrl,
-        method: 'GET'
-      })
-      session.lessons = await response.json()   
-    }
+  static async botonicInit() {
+    const response = await axios({
+      url: config.apiConfig.lessonsUrl,
+      method: 'GET'
+    })
+    const lessons = await response.data
+    return { lessons }
   }
   render() {
     return (
       <>
         <Text>Nabízíme tyto lekce:</Text>
-        <LessonsList data={this.context.session.lessons}/>
+        <LessonsList data={this.props.lessons} />
         <Text>
           Můžete zvolit možnost nebo se vrátit do hlavního menu.
           <Button payload='joinLesson'>Přihlásit se na lekci</Button>
@@ -36,20 +34,19 @@ class LessonsService extends React.Component {
 
 class JoinLesson extends React.Component {
   static contextType = RequestContext
-  static async botonicInit({ input, session, params, lastRoutePath }) {
-    if (!session.lessons) {
-      const response = await fetch(config.apiConfig.lessonsUrl, {
-        url: config.apiConfig.lessonsUrl,
-        method: 'GET'
-      })
-      session.lessons = await response.json()   
-    }
+  static async botonicInit() {
+    const response = await axios({
+      url: config.apiConfig.lessonsUrl,
+      method: 'GET'
+    })
+    const lessons = await response.data
+    return { lessons }
   }
   render() {
     return (
       <>
         <Text>Pro přihlášení zvolte jednu z lekcí.</Text>
-        <LessonsForm data={this.context.session.lessons} name={this.context.session.user.name} phone={this.context.session.user.extra_data.phone}/>
+        <LessonsForm data={this.props.lessons} />
       </>
     )
   }
