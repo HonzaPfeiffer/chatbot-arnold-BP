@@ -2,6 +2,7 @@ import React from 'react'
 import { Text, Button } from '@botonic/react'
 import faqAnswers from '../assets/faqAnswers.json'
 import Close from './closeQuestion'
+import FaqList from '../webchat/faqMessage'
 
 class Faq extends React.Component {
     render() {
@@ -10,15 +11,7 @@ class Faq extends React.Component {
                 <Text>
                     Vyberte, co Vás zajímá.
                 </Text>
-                {
-                    Object.keys(faqAnswers).map((key, i) => (
-                        <Button key={i} payload={'faq-' + key}>{faqAnswers[key].question}</Button>
-                    ))
-                }
-                <Button payload="priceList-all">Náš ceník</Button>
-                <Button payload="contacts">Kontakt na personál</Button>
-                <Button payload="openingHours">Jak máme otevřeno?</Button>
-                <Button payload="covid">Opatření COVID-19</Button>
+                <FaqList/>
             </>
         )
     }

@@ -14,7 +14,7 @@ export default class extends React.Component {
           <Text>Děkuji za konverzaci, nashledanou.</Text>
         ) : (
           <Text>
-            Jak vám mohu pomoci? Lze zvolit jednu z možností.
+            Jak Vám mohu pomoci? Lze zvolit jednu z možností.
             <Button payload="ourServices">Naše služby</Button>
             <Button payload="trainersServices">Služby trenérů</Button>
             <Button payload="faq">Časté dotazy</Button>
