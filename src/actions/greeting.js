@@ -11,7 +11,7 @@ export default class extends React.Component {
                 </Text>
                 <MainMenu />
                 <Text>
-                    Rozumím také příkazům. Vyzkoušejte např. "rezervace sauny" nebo "Jaká je otevírací doba?"
+                    Rozumím také příkazům. Vyzkoušejte např. "Jaká je otevírací doba?"
                 </Text>
             </>
         )

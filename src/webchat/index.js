@@ -2,7 +2,6 @@ import logo from '../assets/logoFK.png'
 import LessonsList from './lessonsListMessage'
 import LessonsForm from './lessonsFormMessage'
 import ReservationForm from './reservationFormMessage'
-import EmailForm from './emailFormMessage'
 import FaqList from './faqMessage'
 import config from '../assets/chatbotConfig.json'
 
@@ -45,7 +44,7 @@ export const webchat = {
                     background: '#87d78d',
                 }            
             },
-            customTypes: [EmailForm, ReservationForm, LessonsForm, LessonsList, FaqList],
+            customTypes: [ReservationForm, LessonsForm, LessonsList, FaqList],
         },
         button: {
             style: {
