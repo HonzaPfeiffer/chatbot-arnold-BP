@@ -1,5 +1,4 @@
 import MainMenu from './actions/mainMenu'
-import EmailSender from './actions/sendEmail'
 import NotFound from './actions/notFound'
 import CloseQuestion from './actions/closeQuestion'
 import ServiceMenu from './actions/ourServices'
@@ -71,11 +70,6 @@ export const routes = [
         intent: 'Reservation',
         payload: /reserve-.*/,
         action: Reservation
-    },
-    {
-        intent: 'AskStaff',
-        payload: 'personalQuery',
-        action: EmailSender,
     },
     {
         payload: /faq-.*/,

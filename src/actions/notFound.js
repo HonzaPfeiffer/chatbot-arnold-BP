@@ -6,8 +6,8 @@ export default class extends React.Component {
     return (
       <>
         <Text>
-          Moc se omlouvám, ale nerozumím vám. Můžete to zkusit znovu nebo se zeptat personálu.
-          <Button payload="personalQuery">Zeptat se personálu</Button>
+          Moc se omlouvám, ale nerozumím vám. Můžete to zkusit znovu nebo kontaktovat personál.
+          <Button payload='help-yes'>Vrátit se do hlavního menu</Button>
         </Text>
       </>
     )
