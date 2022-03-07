@@ -4,7 +4,6 @@ import CloseQuestion from './actions/closeQuestion'
 import ServiceMenu from './actions/ourServices'
 import Alert from './actions/alert'
 import PriceList from './actions/priceList'
-import Reservation from './actions/reservation'
 import { TrainersServices, Trainers } from './actions/trainersServices'
 import LymfoService from './actions/lymfo'
 import FitnessServices from './actions/fitness'
@@ -67,11 +66,6 @@ export const routes = [
         action: PriceList
     },
     {
-        intent: 'Reservation',
-        payload: /reserve-.*/,
-        action: Reservation
-    },
-    {
         payload: /faq-.*/,
         action: FaqAnswer
     },
@@ -98,11 +92,6 @@ export const routes = [
         intent: 'Sauna',
         action: SaunaService,
         payload: 'sauna'
-    },
-    {
-        payload: 'lessons',
-        intent: 'Lessons',
-        action: LessonsService
     },
     {
         payload: 'joinLesson',

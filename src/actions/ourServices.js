@@ -7,7 +7,6 @@ export default class extends React.Component {
             <>
                 <Text>
                     Nabízíme tyto služby. Můžete zvolit jednu z možností nebo se vrátit do menu.
-                    <Button payload="lessons">Sálové lekce</Button>
                     <Button payload="sauna">Sauna</Button>
                     <Button payload="fitness">Posilovna</Button>
                     <Button payload="lymfo">Lymfodrenáž</Button>
