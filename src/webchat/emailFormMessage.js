@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { WebchatContext, customMessage } from '@botonic/react'
 import { MyTextField, MyTextArea } from '../utils'
 import config from '../assets/chatbotConfig.json'
+import axios from 'axios'
 
 const Form = styled.div`
   display: flex;
@@ -61,17 +62,32 @@ class EmailForm extends React.Component {
   }
 
   sendEmail() {
-    fetch(config.emailConfig.serviceUrl, {
-      method: "POST",
-      headers: {
-        'Content-Type': 'application/json'
+    const headers = {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + config.emailConfig.token
+    }
+    const emailTemplate = {
+      personalizations: [
+        {
+          to: [
+            {
+              email: config.emailConfig.recipient
+            }
+          ]
+        }
+      ],
+      from: {
+        email: this.state.email
       },
-      body: JSON.stringify({
-        from: this.state.email,
-        message: this.state.message
-      })
-    })
-      .then(response => {
+      subject: "Message from chatbot Arnold",
+      content: [
+        {
+          type: "text/plain",
+          value: this.state.message
+        }
+      ]
+    }
+    axios.post(config.emailConfig.serviceUrl, emailTemplate, headers).then(response => {
         console.log(response)
         if (response.status === 200 || response.status === 201) {
           this.context.sendPayload('alert-success')

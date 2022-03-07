@@ -4,14 +4,16 @@
         "address": "Národní obrany 824/35 (Pasáž Riviéra)\n160 00 Praha 6 – Bubeneč Metro Dejvická",
         "email": "info@fitkulatak.cz",
         "tel": "+420 224 321 321",
-        "openingHours": "Po – Pá 13.00- 19.00 hod."
+        "openingHours": "Po – Pá 08.00- 20.00 hod."
     },
     "aiConfig": {
         "token": "F2X2FAEW6IYGT7NP6RJB5GRTXCGBNGQF",
         "serviceUrl": "https://api.wit.ai/message"
     },
     "emailConfig": {
-        "serviceUrl": "https://testapi.io/api/arnold/resource/sendemail"
+        "serviceUrl": "https://api.sendgrid.com/v3/mail/send",
+        "recipient": "fiferka@gmail.com",
+        "token": "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"
     },
     "apiConfig": {
         "lessonsUrl": "https://testapi.io/api/arnold/lessons",
