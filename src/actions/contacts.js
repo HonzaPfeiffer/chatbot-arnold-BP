@@ -12,7 +12,6 @@ class ContactMenu extends React.Component {
                     <Button payload="contacts">Kontakty</Button>
                     <Button payload="address">Adresa</Button>
                     <Button payload="openingHours">Otevírací doba</Button>
-                    <Button payload="personalQuery">Zeptat se personálu</Button>
                     <Button payload='help-yes'>Vrátit se do hlavního menu</Button>
                 </Text>
             </>
