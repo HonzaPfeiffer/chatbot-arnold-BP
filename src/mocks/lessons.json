@@ -1,0 +1,52 @@
+{
+    "lessons": [
+        {
+            "id": 1,
+            "lesson": "Powerjoga s Ivanou",
+            "day": "po",
+            "when": "18:00",
+            "capacity": 20,
+            "occupied": 5
+        },
+        {
+            "id": 2,
+            "lesson": "Bodystyling s Bárou",
+            "day": "út",
+            "when": "17:00",
+            "capacity": 20,
+            "occupied": 10
+        },
+        {
+            "id": 3,
+            "lesson": "Powerjoga s Leou",
+            "day": "út",
+            "when": "18:00",
+            "capacity": 20,
+            "occupied": 5
+        },
+        {
+            "id": 4,
+            "lesson": "Pillates s Kamilou",
+            "day": "st",
+            "when": "17:00",
+            "capacity": 20,
+            "occupied": 20
+        },
+        {
+            "id": 5,
+            "lesson": "Bodystyling s Bárou",
+            "day": "čt",
+            "when": "17:00",
+            "capacity": 20,
+            "occupied": 20
+        },
+        {
+            "id": 6,
+            "lesson": "Powerjoga s Leou",
+            "day": "čt",
+            "when": "18:00",
+            "capacity": 10,
+            "occupied": 5
+        }
+    ]
+}

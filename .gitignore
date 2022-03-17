@@ -1,0 +1,5 @@
+node_modules
+dist
+sendgrid.env
+witai.env
+/src/assets/chatbotConfig.json
